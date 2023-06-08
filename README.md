@@ -7,4 +7,6 @@ This protoype generates a custom watermark using an image as well as text that i
 The base video viewer uses [Video.js](https://github.com/videojs/video.js/).
 The watermark uses a modified version of the [Video.js Watermark](https://github.com/xbgmsharp/videojs-watermark) plugin by xbgmsharp.
 
-The example can be viewed by opening `example\index.html`
+It should be noted that the dependence on an external browser means that this solution is not tamperproof, and the watermark can be deleted via Inspect Element. For greater safety, the solution would be ideally deployed as a standalone application.
+
+The example can be viewed by downloading this project and opening `example\index.html`
