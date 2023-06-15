@@ -1,57 +1,61 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-  <title>Video.js Watermark Image Text Example</title>
-  <meta charset="utf-8" />
-  <link href="../video.js/video-js.css" rel="stylesheet">
-  <link href="../videojs.watermark.css" rel="stylesheet">
-  <script src="../video.js/video.js"></script>
-  <script>
-    videojs.options.flash.swf = "../video.js/video-js.swf"
-  </script>
-  <!-- <script src="../videojs.watermark.js"></script> -->
-  <!-- For debugging -->
-  <script src="../src/videojs.watermark.js"></script>
-  <style>
-    body{
-        text-align: center;
+    <title>Clip Viewer Login</title>
+    <meta charset="utf-8" />
+    <style>
+        body{
+            text-align: center;
+        }
+
+        .container {
+      width: 300px;
+      margin: 0 auto;
+      padding: 20px;
+      border: 1px solid #ccc;
     }
 
-    #videoContainer {
-        overflow: hidden;
+    #warning{
+        background-color: red;
+        color: white;
+        display: none;
     }
-  </style>
+
+    </style>
+
+    <script>
+        function login() {
+        var identifier = document.getElementById("identifier").value;
+
+        if(identifier.length>0){
+            sessionStorage.setItem("identifier", identifier); // Save username in local storage
+            window.location.href = "clipview.html"; // Redirect to another page
+        }
+        else{
+            document.getElementById("warning").style.display="block";
+        }
+        }
+    </script>
 </head>
-<body>
 
+<body>
     <header className="App-header">
         <img src=Logo.png className="logo" alt="logo" />
-      </header>
+    </header>
 
-      <div id="videoContainer" width="50%">
-        <video id='video_1' class='video-js vjs-default-skin' controls>
-            <source src="samplevid.mp4" type="video/mp4">
-           </video>
-      </div>
-
-<script>
-var viewerID = "PC0001" //viewerID is to be generated dynamically
-// initialize video.js
-var my_video_id = videojs('video_1');
-
-// Set value to the plugin
-my_video_id.watermark({
-  file: 'Watermark.png',
-  text: "Being viewed by "+viewerID,
-  fontSize: "20px",
-  //xpos: 0,
-  //ypos: 0,
-  columns: 10,
-  rows: 10,
-  opacity: 0.8,
-  //repeat: true
-  });
-</script>
-
+    <div class="container">
+        <h2>Login</h2>
+        <form>
+            <input id="identifier" type="text" placeholder="Identifier" required>
+            <input type="button" value="Login" onclick="login()">
+        </form>
+        <br>
+        <div id="warning">ID cannot be empty</div>
+    </div>
+<form>
+    
+</form>
 </body>
+
 </html>

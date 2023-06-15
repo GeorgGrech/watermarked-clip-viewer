@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Watermaked Clip Viewer</title>
+  <meta charset="utf-8" />
+  <link href="../video.js/video-js.css" rel="stylesheet">
+  <link href="../videojs.watermark.css" rel="stylesheet">
+  <script src="../video.js/video.js"></script>
+  <script>
+    videojs.options.flash.swf = "../video.js/video-js.swf"
+  </script>
+  <!-- <script src="../videojs.watermark.js"></script> -->
+  <!-- For debugging -->
+  <script src="../src/videojs.watermark.js"></script>
+  <style>
+    body{
+        text-align: center;
+    }
+
+    #videoContainer {
+        overflow: hidden;
+    }
+  </style>
+</head>
+<body>
+
+    <header className="App-header">
+        <img src=Logo.png className="logo" alt="logo" />
+      </header>
+
+      <div id="videoContainer" width="50%">
+        <video id='video_1' class='video-js vjs-default-skin' controls>
+            <source src="samplevid.mp4" type="video/mp4">
+           </video>
+      </div>
+
+<script>
+
+var viewerID;
+
+if(sessionStorage.getItem("identifier")!== null){
+  viewerID = sessionStorage.getItem("identifier"); //viewerID is to be generated dynamically
+}
+else{
+  viewerID = "Undefined";
+}
+
+// initialize video.js
+var my_video_id = videojs('video_1');
+
+// Set value to the plugin
+my_video_id.watermark({
+  file: 'Watermark.png',
+  text: "Being viewed by "+viewerID,
+  fontSize: "20px",
+  //xpos: 0,
+  //ypos: 0,
+  columns: 10,
+  rows: 10,
+  opacity: 0.8,
+  //repeat: true
+  });
+</script>
+
+</body>
+</html>

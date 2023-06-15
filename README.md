@@ -9,4 +9,4 @@ The watermark uses a modified version of the [Video.js Watermark](https://github
 
 It should be noted that the dependence on an external browser means that this solution is not tamperproof, and the watermark can be deleted via Inspect Element. For greater safety, the solution would be ideally deployed as a standalone application.
 
-The example can be viewed by downloading this project and opening `example\index.html`
+The example can be run by downloading this project and opening `example\index.html`. After putting a value in the identifier field and clicking "Login", you should be redirected to the clip viewer using an appropriately updated watermark.
